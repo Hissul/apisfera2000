@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local project guidance and working notes
+/.project-guidance/
+/AGENTS.md
+/.vs/
