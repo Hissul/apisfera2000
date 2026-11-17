@@ -1,6 +1,6 @@
-import { Link } from 'react-router'
-import { Container } from '../components/Container'
-import { navigationItems } from './navigationItems'
+import { Link } from "react-router";
+import { Container } from "../components/Container";
+import { navigationItems } from "./navigationItems";
 
 export function Footer() {
   return (
@@ -28,5 +28,5 @@ export function Footer() {
         </nav>
       </Container>
     </footer>
-  )
+  );
 }

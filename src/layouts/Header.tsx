@@ -1,28 +1,28 @@
-import { Menu, X } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router'
-import { Container } from '../components/Container'
-import { Navigation } from './Navigation'
+import { Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router";
+import { Container } from "../components/Container";
+import { Navigation } from "./Navigation";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const menuButtonRef = useRef<HTMLButtonElement>(null)
-  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isMenuOpen) return
+    if (!isMenuOpen) return;
 
-    mobileMenuRef.current?.querySelector<HTMLAnchorElement>('a')?.focus()
+    mobileMenuRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
 
     function handleEscape(event: KeyboardEvent) {
-      if (event.key !== 'Escape') return
-      setIsMenuOpen(false)
-      menuButtonRef.current?.focus()
+      if (event.key !== "Escape") return;
+      setIsMenuOpen(false);
+      menuButtonRef.current?.focus();
     }
 
-    document.addEventListener('keydown', handleEscape)
-    return () => document.removeEventListener('keydown', handleEscape)
-  }, [isMenuOpen])
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [isMenuOpen]);
 
   return (
     <header className="border-b border-brand-bronze/15 bg-brand-white">
@@ -50,11 +50,15 @@ export function Header() {
           type="button"
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
-          aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+          aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
           className="inline-flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-md border border-brand-bronze/25 text-brand-bronze focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite lg:hidden"
           onClick={() => setIsMenuOpen((open) => !open)}
         >
-          {isMenuOpen ? <X aria-hidden="true" size={24} /> : <Menu aria-hidden="true" size={24} />}
+          {isMenuOpen ? (
+            <X aria-hidden="true" size={24} />
+          ) : (
+            <Menu aria-hidden="true" size={24} />
+          )}
         </button>
       </Container>
 
@@ -69,5 +73,5 @@ export function Header() {
         </Container>
       </div>
     </header>
-  )
+  );
 }

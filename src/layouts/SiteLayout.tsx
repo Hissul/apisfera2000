@@ -1,17 +1,17 @@
-import { useEffect, useRef } from 'react'
-import { Outlet, useLocation } from 'react-router'
-import { Footer } from './Footer'
-import { Header } from './Header'
+import { useEffect, useRef } from "react";
+import { Outlet, useLocation } from "react-router";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 export function SiteLayout() {
-  const location = useLocation()
-  const previousPathname = useRef(location.pathname)
+  const location = useLocation();
+  const previousPathname = useRef(location.pathname);
 
   useEffect(() => {
-    if (previousPathname.current === location.pathname) return
-    previousPathname.current = location.pathname
-    document.getElementById('main-content')?.focus()
-  }, [location.pathname])
+    if (previousPathname.current === location.pathname) return;
+    previousPathname.current = location.pathname;
+    document.getElementById("main-content")?.focus();
+  }, [location.pathname]);
 
   return (
     <div className="flex min-h-screen flex-col bg-brand-white">
@@ -31,5 +31,5 @@ export function SiteLayout() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
