@@ -1,3 +1,5 @@
+import { PagePlaceholder } from './PagePlaceholder'
+
 export function HomePage() {
-  return null
+  return <PagePlaceholder title="Аписфера 2000" />
 }

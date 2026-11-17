@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react'
+import { Outlet } from 'react-router'
 
-type SiteLayoutProps = {
-  children: ReactNode
-}
-
-export function SiteLayout({ children }: SiteLayoutProps) {
-  return <main>{children}</main>
+export function SiteLayout() {
+  return (
+    <main id="main-content">
+      <Outlet />
+    </main>
+  )
 }
