@@ -8,6 +8,7 @@ export function Footer() {
       <Container className="flex flex-col gap-5 py-8 sm:flex-row sm:items-start sm:justify-between">
         <Link
           to="/"
+          aria-label="Аписфера 2000 — на главную"
           className="w-fit text-base font-semibold text-brand-bronze focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
         >
           Аписфера 2000

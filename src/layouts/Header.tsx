@@ -29,6 +29,7 @@ export function Header() {
       <Container className="flex items-center justify-between gap-3 py-3 lg:gap-8">
         <Link
           to="/"
+          aria-label="Аписфера 2000 — на главную"
           onClick={() => setIsMenuOpen(false)}
           className="min-w-0 flex-1 rounded-sm focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite lg:flex-none"
         >

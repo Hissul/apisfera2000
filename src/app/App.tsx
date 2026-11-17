@@ -2,9 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { SiteLayout } from "../layouts/SiteLayout";
 import { CataloguePage } from "../pages/CataloguePage";
 import { CompanyPage } from "../pages/CompanyPage";
+import { ContactsPage } from "../pages/ContactsPage";
+import { DealersPage } from "../pages/DealersPage";
 import { HomePage } from "../pages/HomePage";
 import { NotFoundPage } from "../pages/NotFoundPage";
-import { PagePlaceholder } from "../pages/PagePlaceholder";
 import { ProductPage } from "../pages/ProductPage";
 
 function App() {
@@ -16,14 +17,8 @@ function App() {
           <Route path="catalogue" element={<CataloguePage />} />
           <Route path="catalogue/:slug" element={<ProductPage />} />
           <Route path="company" element={<CompanyPage />} />
-          <Route
-            path="contacts"
-            element={<PagePlaceholder title="Контакты" />}
-          />
-          <Route
-            path="gde-kupit"
-            element={<PagePlaceholder title="Где купить" />}
-          />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="gde-kupit" element={<DealersPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

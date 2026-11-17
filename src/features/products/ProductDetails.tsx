@@ -76,14 +76,18 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
     return (
       <section className="py-16">
         <Container>
-          <p
-            role={state.status === "error" ? "alert" : "status"}
-            className="text-brand-graphite"
-          >
-            {state.status === "error"
-              ? "Не удалось загрузить информацию о продукте."
-              : "Загрузка информации о продукте…"}
-          </p>
+          {state.status === "error" ? (
+            <h1 aria-live="assertive" className="text-xl font-semibold text-brand-bronze">
+              Не удалось загрузить информацию о продукте.
+            </h1>
+          ) : (
+            <>
+              <h1 className="sr-only">Информация о продукте</h1>
+              <p role="status" className="text-brand-graphite">
+                Загрузка информации о продукте…
+              </p>
+            </>
+          )}
           {state.status === "error" && (
             <ButtonLink to="/catalogue" variant="bronze" className="mt-6">
               <ArrowLeft aria-hidden="true" size={18} />
@@ -114,7 +118,7 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
             >
               Каталог
             </Link>
-            <span aria-hidden="true" className="mx-2 text-brand-bronze/50">
+            <span aria-hidden="true" className="mx-2 text-brand-bronze">
               /
             </span>
             <span aria-current="page">{product.name}</span>
@@ -155,6 +159,7 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
               {product.instruction && (
                 <a
                   href={product.instruction.href}
+                  aria-label={`Открыть инструкцию к продукту «${product.name}» (PDF)`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-md bg-brand-bronze px-5 py-2.5 text-sm font-semibold text-brand-white motion-safe:transition-colors hover:bg-brand-graphite focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
@@ -221,6 +226,7 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
               <li key={href}>
                 <a
                   href={href}
+                  aria-label={`Позвонить в «Аписферу 2000»: ${display}`}
                   className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-brand-bronze/25 bg-brand-white px-4 py-2 text-sm font-semibold text-brand-bronze hover:border-brand-bronze focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
                 >
                   <Phone aria-hidden="true" size={17} />
