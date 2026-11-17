@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme static {
+  --color-brand-bronze: #6A4A13;
+  --color-brand-honey: #B4771E;
+  --color-brand-gold: #F1B51D;
+  --color-brand-cream: #FAF7F0;
+  --color-brand-graphite: #29251F;
+  --color-brand-white: #FFFFFF;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-brand-white);
+  color: var(--color-brand-graphite);
+}
