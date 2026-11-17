@@ -84,6 +84,7 @@ export const localProducts: readonly Product[] = [
     slug: "teda",
     name: "ТЭДА",
     purpose: "Для лечения варроатоза и акарапидоза пчёл.",
+    purposeCategoryIds: ["varroatosis", "acarapidosis"],
     description: "Термовозгонные шнуры для аэрозольного применения.",
     composition:
       "Действующее вещество — амитраз; в инструкции также указаны калий азотнокислый и о-ксилол.",
@@ -107,6 +108,7 @@ export const localProducts: readonly Product[] = [
     slug: "apistim",
     name: "Апистим",
     purpose: "Для стимуляции развития пчелиных семей.",
+    purposeCategoryIds: ["family-development"],
     description: "Кормовая добавка для пчёл в форме порошка.",
     composition:
       "Калий фосфорнокислый — 25%, магний сернокислый — 36%, кобальт хлористый — 1,2%, сахароза — до 100% (по PDF-инструкции).",
@@ -130,6 +132,7 @@ export const localProducts: readonly Product[] = [
     slug: "muravinka",
     name: "Муравьинка",
     purpose: "Для лечения варроатоза и акарапидоза пчёл.",
+    purposeCategoryIds: ["varroatosis", "acarapidosis"],
     description: "Гель для наружного применения в кислотопроницаемых пакетах.",
     composition:
       "Действующее вещество — муравьиная кислота (85%); вспомогательный компонент — натрий-карбоксиметилцеллюлоза.",
@@ -154,6 +157,7 @@ export const localProducts: readonly Product[] = [
     slug: "apitak",
     name: "Апитак",
     purpose: "Для лечения варроатоза пчёл.",
+    purposeCategoryIds: ["varroatosis"],
     description: "Раствор для наружного применения.",
     composition:
       "Действующее вещество — амитраз (12,5%). В инструкции также указаны эфирное масло чабреца, неонол и ксилол.",
@@ -177,6 +181,7 @@ export const localProducts: readonly Product[] = [
     slug: "vetfor",
     name: "Ветфор",
     purpose: "Для лечения варроатоза пчёл.",
+    purposeCategoryIds: ["varroatosis"],
     description: "Пластины из древесного шпона для размещения в улье.",
     composition:
       "На одну пластину: флувалинат — 80 мг, амитраз — 5 мг. В инструкции также указаны пихтовое масло, диметилсульфоксид и древесный шпон.",

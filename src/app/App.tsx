@@ -1,8 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import { SiteLayout } from "../layouts/SiteLayout";
+import { CataloguePage } from "../pages/CataloguePage";
 import { HomePage } from "../pages/HomePage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { PagePlaceholder } from "../pages/PagePlaceholder";
+import { ProductPage } from "../pages/ProductPage";
 
 function App() {
   return (
@@ -10,14 +12,8 @@ function App() {
       <Routes>
         <Route element={<SiteLayout />}>
           <Route index element={<HomePage />} />
-          <Route
-            path="catalogue"
-            element={<PagePlaceholder title="Каталог препаратов" />}
-          />
-          <Route
-            path="catalogue/:slug"
-            element={<PagePlaceholder title="Страница препарата" />}
-          />
+          <Route path="catalogue" element={<CataloguePage />} />
+          <Route path="catalogue/:slug" element={<ProductPage />} />
           <Route
             path="company"
             element={<PagePlaceholder title="О компании" />}
