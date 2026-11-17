@@ -2,7 +2,10 @@ import { ArrowRight, Image } from "lucide-react";
 import { Link } from "react-router";
 import { ButtonLink } from "../components/Button";
 import { Container } from "../components/Container";
-import { CompanyAdvantages, CompanySummary } from "../features/company/CompanySections";
+import {
+  CompanyAdvantages,
+  CompanySummary,
+} from "../features/company/CompanySections";
 import { ContactMethods } from "../features/contacts/ContactMethods";
 import { ProductPreview } from "../features/products/ProductPreview";
 

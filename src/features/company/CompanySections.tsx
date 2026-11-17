@@ -15,9 +15,16 @@ export function CompanyAdvantages() {
               key={title}
               className="rounded-2xl border border-brand-bronze/10 bg-brand-white p-6"
             >
-              <span aria-hidden="true" className="block h-1 w-8 rounded-full bg-brand-gold" />
-              <h3 className="mt-6 text-lg font-semibold text-brand-bronze">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-brand-graphite">{description}</p>
+              <span
+                aria-hidden="true"
+                className="block h-1 w-8 rounded-full bg-brand-gold"
+              />
+              <h3 className="mt-6 text-lg font-semibold text-brand-bronze">
+                {title}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-brand-graphite">
+                {description}
+              </p>
             </li>
           ))}
         </ul>
