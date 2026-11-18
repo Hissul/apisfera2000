@@ -26,7 +26,7 @@ export function Header() {
 
   return (
     <header className="border-b border-brand-bronze/15 bg-brand-white">
-      <Container className="flex items-center justify-between gap-3 py-3 lg:gap-8">
+      <Container className="flex max-w-7xl items-center justify-between gap-3 py-3 lg:gap-8">
         <Link
           to="/"
           aria-label="Аписфера 2000 — на главную"

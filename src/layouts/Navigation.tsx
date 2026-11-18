@@ -23,7 +23,7 @@ export function Navigation({ mobile = false, onNavigate }: NavigationProps) {
               className={({ isActive }) =>
                 mobile
                   ? `block rounded-sm border-l-4 px-4 py-3 text-base font-medium text-brand-bronze focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-brand-graphite ${isActive ? "border-brand-gold bg-brand-cream" : "border-transparent hover:bg-brand-cream"}`
-                  : `inline-block border-b-2 px-1 py-2 text-sm font-medium text-brand-bronze focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-brand-graphite ${isActive ? "border-brand-gold" : "border-transparent hover:border-brand-honey"}`
+                  : `inline-block border-b-2 px-1 py-2 text-[15px] font-semibold text-brand-bronze focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-brand-graphite ${isActive ? "border-brand-gold" : "border-transparent hover:border-brand-honey"}`
               }
             >
               {label}

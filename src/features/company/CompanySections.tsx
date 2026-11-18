@@ -1,53 +1,80 @@
-import { ArrowRight } from "lucide-react";
-import { ButtonLink } from "../../components/Button";
-import { Container } from "../../components/Container";
-import { SectionHeading } from "../../components/SectionHeading";
-import { companyAdvantages, companySummary } from "./companyContent";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router";
+import { companyAdvantages, companyProfile, companySummary } from "./companyContent";
 
 export function CompanyAdvantages() {
   return (
-    <section className="bg-brand-cream">
-      <Container className="py-16 sm:py-20">
-        <SectionHeading title="Преимущества подхода" />
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {companyAdvantages.map(({ title, description }) => (
-            <li
-              key={title}
-              className="rounded-2xl border border-brand-bronze/10 bg-brand-white p-6"
-            >
-              <span
-                aria-hidden="true"
-                className="block h-1 w-8 rounded-full bg-brand-gold"
-              />
-              <h3 className="mt-6 text-lg font-semibold text-brand-bronze">
-                {title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-brand-graphite">
-                {description}
-              </p>
+    <section className="home-approach" aria-labelledby="home-approach-title">
+      <div className="home-shell home-approach__grid">
+        <div>
+          <p className="home-kicker"><span aria-hidden="true" /> Наш подход</p>
+          <h2 id="home-approach-title" className="home-section-title">Внимание к здоровью пчелиной семьи</h2>
+        </div>
+        <ol className="home-approach__list">
+          {companyAdvantages.map(({ title, description }, index) => (
+            <li key={title}>
+              <span className="home-approach__number">0{index + 1}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
             </li>
           ))}
-        </ul>
-      </Container>
+        </ol>
+      </div>
     </section>
   );
 }
 
 export function CompanySummary() {
   return (
-    <section className="bg-brand-cream">
-      <Container className="grid gap-6 py-16 sm:py-20 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] md:gap-12">
-        <SectionHeading title="О компании" />
-        <div>
-          <p className="max-w-2xl text-base leading-7 text-brand-graphite sm:text-lg sm:leading-8">
-            {companySummary}
-          </p>
-          <ButtonLink className="mt-6" to="/company" variant="bronze">
-            Подробнее о компании
-            <ArrowRight aria-hidden="true" size={18} />
-          </ButtonLink>
+    <section className="home-story" aria-labelledby="home-story-title">
+      <div className="home-shell home-story__grid">
+        <div className="home-story__visual">
+          <img
+            src="/images/company/company.jpg"
+            alt="Пчеловод осматривает рамку с сотами"
+            width="1664"
+            height="928"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-      </Container>
+        <div className="home-story__copy">
+          <p className="home-kicker"><span aria-hidden="true" /> О компании</p>
+          <h2 id="home-story-title" className="home-section-title">Опыт и научный подход — для пчеловодства</h2>
+          <p>{companySummary}</p>
+          <Link className="home-arrow-link" to="/company">
+            Узнать о компании <ArrowUpRight aria-hidden="true" size={20} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function CompanyScience() {
+  const research = companyProfile.sections.find((section) => section.id === "research");
+
+  return (
+    <section className="home-science" aria-labelledby="home-science-title">
+      <div className="home-shell home-science__grid">
+        <div className="home-science__copy">
+          <p className="home-kicker"><span aria-hidden="true" /> Научная деятельность</p>
+          <h2 id="home-science-title" className="home-section-title">От задач пасеки к разработке препаратов</h2>
+          {research && <p>{research.text}</p>}
+        </div>
+        <div className="home-science__visual">
+          <img
+            src="/images/company/work.jpg"
+            alt="Специалист работает с микроскопом, на мониторе изображение пчелы"
+            width="2048"
+            height="1363"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
     </section>
   );
 }

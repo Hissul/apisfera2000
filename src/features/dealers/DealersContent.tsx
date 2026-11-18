@@ -1,8 +1,8 @@
-import { ArrowUpRight, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { useRef, useState } from "react";
 import { Container } from "../../components/Container";
 import { DealerCard } from "./DealerCard";
-import { dealersSource, onlineStores } from "./dealerData";
+import { onlineStores } from "./dealerData";
 import { findRetailDealersByLocation } from "./dealerFilters";
 
 export function DealersContent() {
@@ -24,10 +24,7 @@ export function DealersContent() {
               aria-hidden="true"
               className="mb-6 block h-1 w-9 rounded-full bg-brand-gold"
             />
-            <p className="text-sm font-semibold tracking-[0.12em] text-brand-bronze uppercase">
-              Аписфера 2000
-            </p>
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-brand-bronze sm:text-4xl">
+            <h1 className="text-3xl font-semibold tracking-tight text-brand-bronze sm:text-4xl">
               Где купить
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-brand-graphite sm:text-lg">
@@ -53,7 +50,7 @@ export function DealersContent() {
         </Container>
       </section>
 
-      <section className="bg-brand-cream py-14 sm:py-20">
+      <section className="bg-brand-white py-14 sm:py-20">
         <Container>
           <h2 className="text-2xl font-semibold tracking-tight text-brand-bronze sm:text-3xl">
             Розничные продавцы
@@ -83,11 +80,8 @@ export function DealersContent() {
             </div>
           </div>
 
-          <div className="mt-5 flex min-h-11 items-center justify-between gap-4">
-            <p role="status" className="text-sm text-brand-graphite">
-              Найдено продавцов: {visibleDealers.length}
-            </p>
-            {query && (
+          {query && (
+            <div className="mt-5">
               <button
                 type="button"
                 onClick={clearSearch}
@@ -95,8 +89,8 @@ export function DealersContent() {
               >
                 Сбросить поиск
               </button>
-            )}
-          </div>
+            </div>
+          )}
 
           {visibleDealers.length ? (
             <ul className="mt-5 grid gap-4 md:grid-cols-2">
@@ -113,18 +107,6 @@ export function DealersContent() {
             </p>
           )}
 
-          <p className="mt-10 border-t border-brand-bronze/15 pt-6 text-sm leading-6 text-brand-graphite">
-            Источник списка:{" "}
-            <a
-              href={dealersSource.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded-sm font-semibold text-brand-bronze underline underline-offset-4 hover:text-brand-graphite focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
-            >
-              {dealersSource.title}
-              <ArrowUpRight aria-hidden="true" size={15} />
-            </a>
-          </p>
         </Container>
       </section>
     </>

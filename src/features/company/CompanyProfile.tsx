@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ButtonLink } from "../../components/Button";
 import { Container } from "../../components/Container";
 import { companyProfile } from "./companyContent";
@@ -13,10 +13,7 @@ export function CompanyProfile() {
               aria-hidden="true"
               className="mb-6 block h-1 w-9 rounded-full bg-brand-gold"
             />
-            <p className="text-sm font-semibold tracking-[0.12em] text-brand-bronze uppercase">
-              Аписфера 2000
-            </p>
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-brand-bronze sm:text-4xl">
+            <h1 className="text-3xl font-semibold tracking-tight text-brand-bronze sm:text-4xl">
               О компании
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-brand-graphite sm:text-lg">
@@ -46,22 +43,7 @@ export function CompanyProfile() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col gap-5 border-t border-brand-bronze/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm leading-6 text-brand-graphite">
-              Источник сведений:{" "}
-              {companyProfile.sources.map(({ title, url }) => (
-                <a
-                  key={url}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 rounded-sm font-semibold text-brand-bronze underline underline-offset-4 hover:text-brand-graphite focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
-                >
-                  {title}
-                  <ArrowUpRight aria-hidden="true" size={15} />
-                </a>
-              ))}
-            </p>
+          <div className="mt-10 flex justify-end">
             <ButtonLink to="/catalogue" variant="bronze">
               Смотреть продукцию
               <ArrowRight aria-hidden="true" size={18} />

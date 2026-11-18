@@ -1,42 +1,64 @@
-import { Mail, Phone } from "lucide-react";
-import { Container } from "../../components/Container";
-import { SectionHeading } from "../../components/SectionHeading";
 import { contactEmail } from "./contactContent";
 import { wholesalePhones } from "./wholesalePhones";
 
 export function ContactMethods() {
   return (
-    <section className="bg-brand-white">
-      <Container className="py-16 sm:py-20">
-        <SectionHeading
-          title="Связаться с нами"
-          description="На официальном сайте компании для оптовых вопросов указаны телефоны и электронная почта."
-        />
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-          {wholesalePhones.map(({ display, href }) => (
-            <li key={href}>
-              <a
-                href={href}
-                aria-label={`Позвонить в «Аписферу 2000»: ${display}`}
-                className="flex min-h-16 items-center gap-3 rounded-2xl border border-brand-bronze/15 px-5 py-4 text-base font-semibold text-brand-bronze motion-safe:transition-colors hover:bg-brand-cream focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
-              >
-                <Phone aria-hidden="true" className="shrink-0" size={20} />
-                {display}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a
-              href={contactEmail.href}
-              aria-label={`Написать в «Аписферу 2000»: ${contactEmail.display}`}
-              className="flex min-h-16 items-center gap-3 rounded-2xl border border-brand-bronze/15 px-5 py-4 text-base font-semibold text-brand-bronze motion-safe:transition-colors hover:bg-brand-cream focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
-            >
-              <Mail aria-hidden="true" className="shrink-0" size={20} />
-              <span className="break-all">{contactEmail.display}</span>
+    <ul className="contacts-page__methods" aria-label="Телефоны и электронная почта">
+      {wholesalePhones.map(({ display, href, whatsappHref, maxHref }) => (
+        <li key={href}>
+          <span>Телефон</span>
+          <div className="contacts-page__method-line">
+            <a href={href} aria-label={`Позвонить в «Аписферу 2000»: ${display}`}>
+              {display}
             </a>
-          </li>
-        </ul>
-      </Container>
-    </section>
+            {whatsappHref && (
+              <div className="contacts-page__messengers">
+                <a
+                  className="contacts-page__messenger"
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Написать в WhatsApp на номер ${display}`}
+                  title={`Написать в WhatsApp: ${display}`}
+                >
+                  <img src="/images/social/whatsapp.webp" alt="" width="25" height="25" />
+                </a>
+                {maxHref ? (
+                  <a
+                    className="contacts-page__messenger"
+                    href={maxHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Написать в MAX на номер ${display}`}
+                    title={`Написать в MAX: ${display}`}
+                  >
+                    <img src="/images/social/max.svg" alt="" width="25" height="25" />
+                  </a>
+                ) : (
+                  <button
+                    className="contacts-page__messenger contacts-page__messenger--pending"
+                    type="button"
+                    disabled
+                    aria-label={`MAX для номера ${display}: ссылка пока не добавлена`}
+                    title="Ссылка MAX пока не добавлена"
+                  >
+                    <img src="/images/social/max.svg" alt="" width="25" height="25" />
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+      <li>
+        <span>Электронная почта</span>
+        <a
+          href={contactEmail.href}
+          aria-label={`Написать в «Аписферу 2000»: ${contactEmail.display}`}
+        >
+          {contactEmail.display}
+        </a>
+      </li>
+    </ul>
   );
 }
