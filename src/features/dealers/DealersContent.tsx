@@ -40,10 +40,10 @@ export function DealersContent() {
           <h2 className="text-2xl font-semibold tracking-tight text-brand-bronze sm:text-3xl">
             Интернет-магазины
           </h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <ul className="mt-8 grid auto-rows-fr gap-4 md:grid-cols-2">
             {onlineStores.map((store) => (
               <li key={store.id}>
-                <DealerCard {...store} />
+                <DealerCard {...store} variant="online" />
               </li>
             ))}
           </ul>
@@ -93,7 +93,7 @@ export function DealersContent() {
           )}
 
           {visibleDealers.length ? (
-            <ul className="mt-5 grid gap-4 md:grid-cols-2">
+            <ul className="mt-5 grid auto-rows-fr gap-4 md:grid-cols-2">
               {visibleDealers.map((dealer) => (
                 <li key={dealer.id}>
                   <DealerCard {...dealer} />

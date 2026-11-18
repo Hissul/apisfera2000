@@ -19,6 +19,11 @@ export type ProductInstruction = {
   readonly sourceUrl: string;
 };
 
+export type ProductVideo = {
+  readonly embedUrl: string;
+  readonly sourceUrl: string;
+};
+
 export type ProductPurposeId =
   | "varroatosis"
   | "acarapidosis"
@@ -34,6 +39,7 @@ export type Product = {
   readonly application: string | null;
   readonly image: ProductImage | null;
   readonly instruction: ProductInstruction | null;
+  readonly video: ProductVideo | null;
   readonly sources: readonly [ProductSource, ...ProductSource[]];
   readonly relatedProductSlugs: readonly string[] | null;
 };

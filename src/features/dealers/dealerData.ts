@@ -9,7 +9,7 @@ export type RetailDealer = {
 export const dealersSource = {
   title: "Где купить в розницу — ООО «Аписфера 2000»",
   url: "https://apisfera2000.ru/gde-kupit",
-  checkedAt: "2026-11-17",
+  checkedAt: "2026-11-18",
 } as const;
 
 // Ссылки показаны только для сайтов, открывшихся при проверке 17.11.2026.
@@ -18,30 +18,37 @@ export const onlineStores = [
     id: "online-01",
     name: "Агропасека.Ру",
     phoneText: "8-800-555-75-48",
+    details: "Склад для самовывоза в Москве. Доставка по России.",
     websiteHref: null,
   },
   {
     id: "online-02",
     name: "ООО «Передовая пасека»",
     phoneText: "8-800-100-05-04, (495) 950-58-85",
+    details:
+      "Склады для самовывоза в Москве, Санкт-Петербурге, Краснодаре. Доставка по России.",
     websiteHref: "https://pchelovodstvo.org/",
   },
   {
     id: "online-03",
     name: "Пчеландия",
     phoneText: "8-800-200-90-50",
+    details: "Офис в Петрозаводске. Доставка по России.",
     websiteHref: "https://pchelovod.com/",
   },
   {
     id: "online-04",
     name: "Апипроф",
     phoneText: "+7 (927) 666 01 46",
+    details:
+      "Чувашская Республика, г. Ядрин, ул. Садовая, д. 19 А. Доставка по России.",
     websiteHref: "https://apiprof.ru/",
   },
   {
     id: "online-05",
     name: "Интернет-магазин «Пчелотехника»",
     phoneText: "+7 (927) 666-01-46",
+    details: "Орловская область, г. Ливны. Доставка по России.",
     websiteHref: null,
   },
 ] as const;

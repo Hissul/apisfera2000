@@ -1,0 +1,100 @@
+.video-instruction-dialog {
+  width: min(940px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  color: #29251f;
+  box-shadow: 0 24px 70px rgb(0 0 0 / 24%);
+}
+
+.video-instruction-dialog::backdrop {
+  background: rgb(41 37 31 / 76%);
+}
+
+.video-instruction-dialog__surface {
+  background: #fff;
+}
+
+.video-instruction-dialog__header {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px 12px 28px;
+}
+
+.video-instruction-dialog h2 {
+  margin: 0;
+  color: #6a4a13;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(19px, 3vw, 28px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.video-instruction-dialog__actions {
+  display: flex;
+  flex: none;
+  gap: 4px;
+}
+
+.video-instruction-dialog__icon-button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #6a4a13;
+  cursor: pointer;
+}
+
+.video-instruction-dialog__icon-button:hover {
+  background: #faf7f0;
+}
+
+.video-instruction-dialog__icon-button:focus-visible {
+  outline: 3px solid #29251f;
+  outline-offset: -3px;
+}
+
+.video-instruction-dialog__frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #29251f;
+}
+
+.video-instruction-dialog__notice {
+  margin: 0;
+  padding: 12px 28px;
+  font-size: 14px;
+}
+
+.video-instruction-dialog__surface:fullscreen {
+  display: flex;
+  width: 100vw;
+  height: 100dvh;
+  flex-direction: column;
+}
+
+.video-instruction-dialog__surface:fullscreen .video-instruction-dialog__frame {
+  min-height: 0;
+  flex: 1;
+  aspect-ratio: auto;
+}
+
+@media (max-width: 600px) {
+  .video-instruction-dialog__header {
+    min-height: 64px;
+    padding: 10px 12px 10px 16px;
+  }
+}

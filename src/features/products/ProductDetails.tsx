@@ -4,9 +4,10 @@ import {
   FileText,
   Image as ImageIcon,
   Phone,
+  Play,
 } from "lucide-react";
 import type { ReactNode } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { ButtonLink } from "../../components/Button";
 import { Container } from "../../components/Container";
@@ -14,6 +15,8 @@ import { wholesalePhones } from "../contacts/wholesalePhones";
 import { ProductCard } from "./ProductCard";
 import { productRepository } from "./productRepository";
 import type { Product } from "./productTypes";
+import { showcaseImages } from "./showcaseImages";
+import { VideoInstructionDialog } from "./VideoInstructionDialog";
 
 type ProductDetailsState =
   | { status: "loading" }
@@ -31,6 +34,8 @@ type ProductDetailsProps = {
 };
 
 export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
+  const [videoOpen, setVideoOpen] = useState(false);
+  const videoButtonRef = useRef<HTMLButtonElement>(null);
   const [state, setState] = useState<ProductDetailsState>({
     status: "loading",
   });
@@ -100,6 +105,9 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
   }
 
   const { product, relatedProducts } = state;
+  const detailImage = product.image
+    ? (showcaseImages[product.slug as keyof typeof showcaseImages] ?? product.image)
+    : null;
   const hasProductFacts = Boolean(
     product.purpose || product.composition || product.application,
   );
@@ -126,12 +134,12 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-brand-bronze/15 bg-brand-white">
-              {product.image ? (
+              {detailImage ? (
                 <img
-                  src={product.image.src}
-                  alt={product.image.alt}
-                  width={product.image.width}
-                  height={product.image.height}
+                  src={detailImage.src}
+                  alt={product.image?.alt ?? product.name}
+                  width={detailImage.width}
+                  height={detailImage.height}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
@@ -160,17 +168,32 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
                   {product.description}
                 </p>
               )}
-              {product.instruction && (
-                <a
-                  href={product.instruction.href}
-                  aria-label={`Открыть инструкцию к продукту «${product.name}» (PDF)`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-md bg-brand-bronze px-5 py-2.5 text-sm font-semibold text-brand-white motion-safe:transition-colors hover:bg-brand-graphite focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
-                >
-                  <FileText aria-hidden="true" size={18} />
-                  Открыть инструкцию (PDF)
-                </a>
+              {(product.instruction || product.video) && (
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {product.instruction && (
+                    <a
+                      href={product.instruction.href}
+                      aria-label={`Открыть инструкцию к продукту «${product.name}» (PDF)`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-brand-bronze px-5 text-sm font-semibold text-brand-white motion-safe:transition-colors hover:bg-brand-graphite focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite sm:w-72"
+                    >
+                      <FileText aria-hidden="true" size={18} />
+                      Открыть инструкцию (PDF)
+                    </a>
+                  )}
+                  {product.video && (
+                    <button
+                      ref={videoButtonRef}
+                      type="button"
+                      onClick={() => setVideoOpen(true)}
+                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-brand-bronze bg-brand-white px-5 text-sm font-semibold text-brand-bronze motion-safe:transition-colors hover:bg-brand-bronze hover:text-brand-white focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite sm:w-72"
+                    >
+                      <Play aria-hidden="true" size={18} />
+                      Смотреть видеоинструкцию
+                    </button>
+                  )}
+                </div>
               )}
             </div>
           </div>
@@ -240,18 +263,16 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
             ))}
           </ul>
           <p className="mt-6 max-w-2xl leading-7 text-brand-graphite">
-            Список розничных продавцов опубликован на действующем сайте
-            компании. Наличие конкретного продукта уточняйте у продавца.
+            Список розничных продавцов и интернет-магазинов доступен в разделе
+            «Где купить». Наличие конкретного продукта уточняйте у продавца.
           </p>
-          <a
-            href="https://apisfera2000.ru/gde-kupit"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/gde-kupit"
             className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-semibold text-brand-bronze underline underline-offset-4 hover:text-brand-graphite focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
           >
-            Розничные продавцы на сайте компании
+            Перейти в раздел «Где купить»
             <ArrowUpRight aria-hidden="true" size={18} />
-          </a>
+          </Link>
         </Container>
       </section>
 
@@ -272,6 +293,15 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
             </ul>
           </Container>
         </section>
+      )}
+
+      {videoOpen && product.video && (
+        <VideoInstructionDialog
+          video={product.video}
+          productName={product.name}
+          onClose={() => setVideoOpen(false)}
+          returnFocusTo={videoButtonRef}
+        />
       )}
     </>
   );

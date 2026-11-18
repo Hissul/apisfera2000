@@ -6,6 +6,12 @@ const catalogueSource = {
   checkedAt: "2026-11-17",
 } satisfies ProductSource;
 
+const videoSource = {
+  title: "Видеоинструкции ООО «Аписфера 2000»",
+  url: "https://apisfera2000.ru/video",
+  checkedAt: "2026-11-18",
+} satisfies ProductSource;
+
 const tedaPageSource = {
   title: "Тэда",
   url: "https://apisfera2000.ru/teda",
@@ -103,7 +109,11 @@ export const localProducts: readonly Product[] = [
       title: "Инструкция по применению препарата ТЭДА (PDF)",
       sourceUrl: tedaInstructionUrl,
     },
-    sources: [catalogueSource, tedaPageSource, tedaInstructionSource],
+    video: {
+      embedUrl: "https://rutube.ru/play/embed/30384dcd2c445f558bb4bc2a1ef2d13c/",
+      sourceUrl: videoSource.url,
+    },
+    sources: [catalogueSource, tedaPageSource, tedaInstructionSource, videoSource],
     relatedProductSlugs: null,
   },
   {
@@ -129,6 +139,7 @@ export const localProducts: readonly Product[] = [
       title: "Инструкция по применению Апистима (PDF)",
       sourceUrl: apistimInstructionUrl,
     },
+    video: null,
     sources: [catalogueSource, apistimPageSource, apistimInstructionSource],
     relatedProductSlugs: null,
   },
@@ -156,7 +167,11 @@ export const localProducts: readonly Product[] = [
         "Инструкция по ветеринарному применению препарата Муравьинка (PDF)",
       sourceUrl: muravinkaInstructionUrl,
     },
-    sources: [catalogueSource, muravinkaPageSource, muravinkaInstructionSource],
+    video: {
+      embedUrl: "https://rutube.ru/play/embed/e1920e41c4aeed6358d813556b57a6e5/",
+      sourceUrl: videoSource.url,
+    },
+    sources: [catalogueSource, muravinkaPageSource, muravinkaInstructionSource, videoSource],
     relatedProductSlugs: null,
   },
   {
@@ -182,7 +197,11 @@ export const localProducts: readonly Product[] = [
       title: "Инструкция по применению препарата Апитак (PDF)",
       sourceUrl: apitakInstructionUrl,
     },
-    sources: [catalogueSource, apitakPageSource, apitakInstructionSource],
+    video: {
+      embedUrl: "https://rutube.ru/play/embed/fe68a6858756c0b3cc632fa7b22681e5/",
+      sourceUrl: videoSource.url,
+    },
+    sources: [catalogueSource, apitakPageSource, apitakInstructionSource, videoSource],
     relatedProductSlugs: null,
   },
   {
@@ -208,7 +227,11 @@ export const localProducts: readonly Product[] = [
       title: "Инструкция по применению препарата Ветфор (PDF)",
       sourceUrl: vetforInstructionUrl,
     },
-    sources: [catalogueSource, vetforPageSource, vetforInstructionSource],
+    video: {
+      embedUrl: "https://rutube.ru/play/embed/71f6272f392f7fea70513c6b63ac7391/",
+      sourceUrl: videoSource.url,
+    },
+    sources: [catalogueSource, vetforPageSource, vetforInstructionSource, videoSource],
     relatedProductSlugs: null,
   },
 ];
