@@ -5,9 +5,14 @@ import type { Product } from "./productTypes";
 type ProductCardProps = {
   product: Product;
   headingLevel?: 2 | 3;
+  imageLoading?: "eager" | "lazy";
 };
 
-export function ProductCard({ product, headingLevel = 2 }: ProductCardProps) {
+export function ProductCard({
+  product,
+  headingLevel = 2,
+  imageLoading = "lazy",
+}: ProductCardProps) {
   const Heading = headingLevel === 3 ? "h3" : "h2";
 
   return (
@@ -16,21 +21,24 @@ export function ProductCard({ product, headingLevel = 2 }: ProductCardProps) {
         to={`/catalogue/${product.slug}`}
         className="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-bronze/15 bg-brand-white motion-safe:transition-[border-color,box-shadow] hover:border-brand-bronze/45 hover:shadow-lg hover:shadow-brand-bronze/5 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-graphite"
       >
-        <div className="flex aspect-[4/3] items-center justify-center border-b border-brand-bronze/10 bg-brand-white">
+        <div className="relative aspect-[4/3] overflow-hidden border-b border-brand-bronze/10 bg-brand-white">
           {product.image ? (
             <img
               src={product.image.src}
               alt={product.image.alt}
-              loading="lazy"
+              width={product.image.width}
+              height={product.image.height}
+              loading={imageLoading}
+              fetchPriority={imageLoading === "eager" ? "high" : "auto"}
               decoding="async"
-              className="h-full w-full object-contain p-5"
+              className="absolute inset-0 h-full w-full object-contain p-5"
             />
           ) : (
             <ImageIcon
               aria-hidden="true"
               size={40}
               strokeWidth={1.25}
-              className="text-brand-bronze/40"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-brand-bronze/40"
             />
           )}
         </div>

@@ -112,8 +112,12 @@ export function ProductCatalogue() {
           </div>
         ) : (
           <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {visibleProducts.map((product) => (
-              <ProductCard key={product.slug} product={product} />
+            {visibleProducts.map((product, index) => (
+              <ProductCard
+                key={product.slug}
+                product={product}
+                imageLoading={index === 0 ? "eager" : "lazy"}
+              />
             ))}
           </ul>
         )}

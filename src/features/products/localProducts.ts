@@ -93,6 +93,8 @@ export const localProducts: readonly Product[] = [
     image: {
       src: "/images/teda-package.jpg",
       alt: "Упаковка ТЭДА и шнуры препарата",
+      width: 522,
+      height: 527,
       sourceUrl: "https://apisfera2000.ru/images/phocagallery/teda1.jpg",
       rights: officialImageRightsNote,
     },
@@ -117,6 +119,8 @@ export const localProducts: readonly Product[] = [
     image: {
       src: "/images/apistim-package.jpg",
       alt: "Упаковка кормовой добавки Апистим",
+      width: 712,
+      height: 532,
       sourceUrl: "https://apisfera2000.ru/images/phocagallery/apistim.jpg",
       rights: officialImageRightsNote,
     },
@@ -141,6 +145,8 @@ export const localProducts: readonly Product[] = [
     image: {
       src: "/images/muravinka-package.jpg",
       alt: "Банка Муравьинки и пакетики с препаратом",
+      width: 800,
+      height: 587,
       sourceUrl: "https://apisfera2000.ru/images/phocagallery/muravinka.jpg",
       rights: officialImageRightsNote,
     },
@@ -166,6 +172,8 @@ export const localProducts: readonly Product[] = [
     image: {
       src: "/images/apitak-package.jpg",
       alt: "Упаковка Апитака и две ампулы",
+      width: 473,
+      height: 289,
       sourceUrl: "https://apisfera2000.ru/images/phocagallery/apitak.jpg",
       rights: officialImageRightsNote,
     },
@@ -190,6 +198,8 @@ export const localProducts: readonly Product[] = [
     image: {
       src: "/images/vetfor-package.jpg",
       alt: "Упаковка Ветфора и деревянные пластины",
+      width: 800,
+      height: 573,
       sourceUrl: "https://apisfera2000.ru/images/phocagallery/vetfor.jpg",
       rights: officialImageRightsNote,
     },

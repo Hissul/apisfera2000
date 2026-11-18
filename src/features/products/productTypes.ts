@@ -7,6 +7,8 @@ export type ProductSource = {
 export type ProductImage = {
   readonly src: string;
   readonly alt: string;
+  readonly width: number;
+  readonly height: number;
   readonly sourceUrl: string;
   readonly rights: string;
 };

@@ -38,6 +38,9 @@ export function Header() {
             alt="Логотип компании «Аписфера 2000»"
             width="335"
             height="124"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="block h-auto w-full max-w-[260px]"
           />
         </Link>

@@ -130,6 +130,10 @@ export function ProductDetails({ slug, notFound }: ProductDetailsProps) {
                 <img
                   src={product.image.src}
                   alt={product.image.alt}
+                  width={product.image.width}
+                  height={product.image.height}
+                  loading="eager"
+                  fetchPriority="high"
                   decoding="async"
                   className="h-full w-full object-contain p-6 sm:p-8"
                 />
