@@ -11,10 +11,10 @@ export function HomePage() {
       <section className="home-hero" aria-labelledby="home-hero-title">
         <img
           className="home-hero__image"
-          src="/images/hero/hero.jpg"
+          src="/images/hero/hero-pexels-optimized.jpg"
           alt="Пчёлы на сотах"
-          width="1200"
-          height="673"
+          width="3200"
+          height="2133"
           fetchPriority="high"
           loading="eager"
           decoding="async"

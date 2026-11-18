@@ -32,10 +32,10 @@ export function CompanySummary() {
       <div className="home-shell home-story__grid">
         <div className="home-story__visual">
           <img
-            src="/images/company/company.jpg"
+            src="/images/company/company-pexels-optimized.webp"
             alt="Пчеловод осматривает рамку с сотами"
-            width="1664"
-            height="928"
+            width="3200"
+            height="2133"
             loading="lazy"
             decoding="async"
           />
@@ -66,10 +66,10 @@ export function CompanyScience() {
         </div>
         <div className="home-science__visual">
           <img
-            src="/images/company/work.jpg"
-            alt="Специалист работает с микроскопом, на мониторе изображение пчелы"
-            width="2048"
-            height="1363"
+            src="/images/company/research-pexels-optimized.webp"
+            alt="Исследователь изучает образец с помощью микроскопа"
+            width="2400"
+            height="3600"
             loading="lazy"
             decoding="async"
           />

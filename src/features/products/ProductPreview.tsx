@@ -103,13 +103,8 @@ export function ProductPreview() {
     <section className="home-products" aria-labelledby="home-products-title">
       <div className="home-shell home-products__layout">
         <div className="home-products__intro">
-          <div>
-            <p className="home-kicker"><span aria-hidden="true" /> Каталог</p>
-            <h2 id="home-products-title" className="home-section-title">Препараты для пчеловодства</h2>
-          </div>
-          <Link className="home-arrow-link" to="/catalogue">
-            Весь каталог <ArrowUpRight aria-hidden="true" size={20} />
-          </Link>
+          <p className="home-kicker"><span aria-hidden="true" /> Каталог</p>
+          <h2 id="home-products-title" className="home-section-title">Препараты для пчеловодства</h2>
         </div>
         <div className="home-products__showcase">
           {loadFailed ? (
@@ -166,6 +161,9 @@ export function ProductPreview() {
               </div>
             </>
           )}
+          <Link className="home-arrow-link home-products__catalogue-link" to="/catalogue">
+            Весь каталог <ArrowUpRight aria-hidden="true" size={20} />
+          </Link>
         </div>
       </div>
     </section>

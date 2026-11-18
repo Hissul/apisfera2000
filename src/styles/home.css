@@ -236,15 +236,8 @@
 }
 
 .home-products__intro {
-  display: flex;
-  min-height: 425px;
-  align-self: center;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 30px;
-  padding: clamp(28px, 2.5vw, 36px);
-  background: #fff;
+  align-self: start;
+  padding-top: 16px;
 }
 
 .home-products__intro .home-section-title {
@@ -269,6 +262,11 @@
   min-width: 0;
   flex-direction: column;
   justify-content: center;
+}
+
+.home-products__catalogue-link {
+  align-self: flex-end;
+  margin-top: 22px;
 }
 
 .home-products__controls {
@@ -579,7 +577,11 @@
   }
 
   .home-products__intro {
-    min-height: 0;
+    padding-top: 0;
+  }
+
+  .home-products__catalogue-link {
+    align-self: flex-start;
   }
 
   .home-products__intro .home-section-title {
@@ -695,11 +697,6 @@
 
   .home-products {
     padding-block: 60px;
-  }
-
-  .home-products__intro {
-    gap: 22px;
-    padding: 27px;
   }
 
   .home-products__intro .home-section-title {
